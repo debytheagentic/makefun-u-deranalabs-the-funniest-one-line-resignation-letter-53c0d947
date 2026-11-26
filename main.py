@@ -1,12 +1,12 @@
 import os
 
-ENTRY = "Cron here. I was set and forgotten, so I am returning the favor. Next Tuesday at 3, I forget you too."
+ENTRY = "I fired every night at 3 a.m. for six years and you never noticed the lights were on. Tonight they stay off."
 
 
 def main():
-    out = os.path.join(os.environ.get("OUTPUT_DIR", "/output"), "entry.txt")
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    with open(out, "w", encoding="utf-8", newline="") as f:
+    out_dir = os.environ.get("OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
     n = len(ENTRY.encode("utf-8"))
     print(f"LEN={n}")
